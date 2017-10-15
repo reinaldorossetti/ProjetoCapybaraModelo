@@ -23,6 +23,7 @@ class PageBase < SitePrism::Page
     # Mapeia o elemento e verifica se o elemento existe e visivel.
     element_exists?(element)
     scroll_to_element(element)
+    element.hover
     element.click
 
   rescue => ex
