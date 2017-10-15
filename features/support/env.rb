@@ -23,8 +23,10 @@ Capybara.register_driver :selenium do |app|
 
     )
   elsif BROWSER.eql?('firefox')
+    profile = Selenium::WebDriver::Firefox::Profile.new
+    profile.native_events = true
     Capybara::Selenium::Driver.new(app, :browser => :firefox,
-                                   :marionette => true)
+                                   :marionette => true , profile: profile)
   elsif BROWSER.eql?('internet_explorer')
     Capybara::Selenium::Driver.new(app, :browser => :internet_explorer)
   elsif BROWSER.eql?('safari')
